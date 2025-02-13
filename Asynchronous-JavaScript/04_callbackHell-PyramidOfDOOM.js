@@ -1,4 +1,4 @@
-// callbacks , callback hell, pyramid of doom
+// callbacks , callback hell, pyramid of doom, Inversion of control
 
 const heading1 = document.querySelector(".heading1");
 const heading2 = document.querySelector(".heading2");
@@ -76,3 +76,16 @@ function changeText(element, text, color, time, onSuccessCallback, onFailureCall
 
 
 
+const value = (callback) => {
+  callback();
+}
+
+const value2 = () => {
+  console.log("Child")
+}
+
+value(value2);
+
+
+// So here value is higher order function which takes value2 as an argument and then call it later so here if we by mistake deleted the callback call from parent function which create the problem
+// of inversion of control because the control of 2nd i.e child function is now going to parent function.
